@@ -1,0 +1,769 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ArmSungMa | Home Construction & Renovation</title>
+  <meta name="description" content="ArmSungMa รับสร้างบ้าน ต่อเติม รีโนเวท และงานตกแต่งภายใน ขอใบเสนอราคาฟรี" />
+  <style>
+    :root{
+      --bg:#071426;         /* dark navy */
+      --bg2:#0b1f3b;        /* navy */
+      --card:#0d2748;       /* card navy */
+      --card2:#0a1c34;
+      --text:#eef4ff;
+      --muted:#b9c8e6;
+      --line:rgba(255,255,255,.10);
+      --accent:#2f80ed;     /* CTA blue */
+      --accent2:#1e5fb6;
+      --shadow: 0 12px 30px rgba(0,0,0,.35);
+      --radius:18px;
+      --radius2:24px;
+      --max: 1140px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans Thai", "Noto Sans", sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(1200px 700px at 20% -10%, rgba(47,128,237,.25), transparent 60%),
+        radial-gradient(900px 600px at 90% 10%, rgba(242,201,76,.10), transparent 55%),
+        linear-gradient(180deg, var(--bg) 0%, #050d18 100%);
+      line-height:1.6;
+    }
+    a{color:inherit; text-decoration:none}
+    .container{max-width:var(--max); margin:0 auto; padding:0 18px}
+    .nav{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(10px);
+      background: rgba(7,20,38,.70);
+      border-bottom:1px solid var(--line);
+    }
+    .nav-inner{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 0;
+      gap:14px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:12px;
+      font-weight:800; letter-spacing:.2px;
+    }
+    .logo{
+      width:38px; height:38px; border-radius:12px;
+      background: linear-gradient(135deg, rgba(47,128,237,.95), rgba(30,95,182,.85));
+      box-shadow: 0 10px 20px rgba(47,128,237,.25);
+      display:grid; place-items:center;
+      border:1px solid rgba(255,255,255,.14);
+    }
+    .logo svg{opacity:.95}
+    .brand small{display:block; font-weight:600; color:var(--muted); margin-top:-3px}
+    .menu{
+      display:flex; gap:14px; align-items:center;
+      color:var(--muted);
+      font-weight:600;
+      font-size:14px;
+    }
+    .menu a{padding:10px 10px; border-radius:12px}
+    .menu a:hover{background: rgba(255,255,255,.06); color:var(--text)}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding:12px 16px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      color:var(--text);
+      font-weight:800;
+      cursor:pointer;
+      transition:.2s ease;
+      white-space:nowrap;
+    }
+    .btn:hover{transform: translateY(-1px); background: rgba(255,255,255,.10)}
+    .btn-primary{
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      border:1px solid rgba(255,255,255,.12);
+      box-shadow: 0 14px 30px rgba(47,128,237,.22);
+    }
+    .btn-primary:hover{filter:saturate(1.08) brightness(1.05)}
+    .btn-ghost{background: transparent}
+    .pill{
+      display:inline-flex; gap:10px; align-items:center;
+      padding:8px 12px;
+      border:1px solid rgba(255,255,255,.14);
+      border-radius:999px;
+      background: rgba(255,255,255,.06);
+      color:var(--muted);
+      font-weight:700;
+      font-size:13px;
+    }
+    .hero{
+      padding:34px 0 26px;
+      position:relative;
+      overflow:hidden;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.25fr .85fr;
+      gap:24px;
+      align-items:stretch;
+    }
+    .hero-card{
+      border:1px solid var(--line);
+      border-radius: var(--radius2);
+      background:
+        linear-gradient(0deg, rgba(7,20,38,.75), rgba(7,20,38,.75)),
+        url("https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&w=2000&q=80");
+      background-size:cover;
+      background-position:center;
+      box-shadow: var(--shadow);
+      padding:28px;
+      min-height: 420px;
+      position:relative;
+    }
+    .hero-card:after{
+      content:"";
+      position:absolute; inset:0;
+      background: radial-gradient(900px 520px at 10% 10%, rgba(47,128,237,.28), transparent 60%);
+      pointer-events:none;
+      border-radius: var(--radius2);
+    }
+    .hero-card > *{position:relative; z-index:1}
+    .hero h1{
+      margin:16px 0 10px;
+      font-size: clamp(34px, 4.3vw, 56px);
+      line-height:1.05;
+      letter-spacing:-.5px;
+    }
+    .hero p{
+      margin:0 0 16px;
+      color:rgba(238,244,255,.92);
+      max-width: 52ch;
+      font-size:16px;
+    }
+    .hero-actions{
+      display:flex; gap:12px; flex-wrap:wrap;
+      margin-top: 10px;
+    }
+    .trust-row{
+      margin-top:18px;
+      display:grid; grid-template-columns: repeat(4, minmax(0,1fr));
+      gap:10px;
+    }
+    .trust{
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+      border-radius: 16px;
+      padding:12px;
+      color:var(--muted);
+      font-weight:700;
+      font-size:13px;
+      display:flex; gap:10px; align-items:flex-start;
+    }
+    .trust svg{flex:0 0 auto; margin-top:2px}
+    .side-card{
+      border:1px solid var(--line);
+      border-radius: var(--radius2);
+      background: linear-gradient(180deg, rgba(11,31,59,.85), rgba(7,20,38,.85));
+      box-shadow: var(--shadow);
+      padding:22px;
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+      min-height: 420px;
+    }
+    .side-card h3{margin:0; font-size:18px}
+    .side-card p{margin:0; color:var(--muted); font-size:14px}
+    .form{
+      display:grid; gap:10px;
+      margin-top: 8px;
+    }
+    .input, .select, .textarea{
+      width:100%;
+      padding:12px 12px;
+      border-radius: 14px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      color:var(--text);
+      outline:none;
+      font-weight:700;
+    }
+    .textarea{min-height: 92px; resize:vertical; font-weight:600}
+    .input::placeholder, .textarea::placeholder{color: rgba(185,200,230,.75)}
+    .section{
+      padding: 34px 0;
+    }
+    .section-head{
+      display:flex; align-items:flex-end; justify-content:space-between;
+      gap:14px; margin-bottom: 16px;
+    }
+    .section-head h2{
+      margin:0;
+      font-size: 26px;
+      letter-spacing:-.2px;
+    }
+    .section-head p{
+      margin:0;
+      color:var(--muted);
+      max-width: 62ch;
+      font-size:14px;
+    }
+    .grid-3{
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap:14px;
+    }
+    .grid-2{
+      display:grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap:14px;
+    }
+    .card{
+      border:1px solid var(--line);
+      background: linear-gradient(180deg, rgba(13,39,72,.75), rgba(10,28,52,.75));
+      border-radius: var(--radius);
+      padding:18px;
+      box-shadow: 0 10px 24px rgba(0,0,0,.20);
+    }
+    .card h3{margin:0 0 6px; font-size:16px}
+    .card p{margin:0; color:var(--muted); font-size:14px}
+    .list{
+      margin:10px 0 0; padding:0; list-style:none;
+      display:grid; gap:8px;
+      color:var(--muted);
+      font-weight:650;
+      font-size:13px;
+    }
+    .list li{display:flex; gap:10px; align-items:flex-start}
+    .portfolio{
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap:14px;
+    }
+    .project{
+      overflow:hidden;
+      padding:0;
+    }
+    .project .img{
+      height:160px;
+      background-size:cover;
+      background-position:center;
+      border-bottom:1px solid var(--line);
+    }
+    .project .body{padding:16px}
+    .project .meta{
+      display:flex; gap:8px; flex-wrap:wrap;
+      margin-top:10px;
+    }
+    .tag{
+      font-size:12px; font-weight:800;
+      color:rgba(238,244,255,.92);
+      background: rgba(47,128,237,.16);
+      border:1px solid rgba(47,128,237,.22);
+      padding:6px 10px;
+      border-radius:999px;
+    }
+    .steps{
+      display:grid;
+      grid-template-columns: repeat(5, minmax(0,1fr));
+      gap:12px;
+    }
+    .step{
+      padding:16px;
+      position:relative;
+    }
+    .step .num{
+      width:34px; height:34px; border-radius:12px;
+      display:grid; place-items:center;
+      font-weight:900;
+      background: rgba(47,128,237,.18);
+      border:1px solid rgba(47,128,237,.25);
+      margin-bottom:10px;
+    }
+    .reviews{
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap:14px;
+    }
+    .stars{letter-spacing:1px; color:#ffd36a; font-weight:900}
+    .reviewer{margin-top:10px; font-weight:900}
+    .contact{
+      display:grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap:14px;
+      align-items:start;
+    }
+    .note{
+      margin-top:10px;
+      color:rgba(185,200,230,.88);
+      font-size:12px;
+    }
+    .footer{
+      padding: 26px 0 90px;
+      border-top:1px solid var(--line);
+      color:var(--muted);
+      font-size:13px;
+    }
+    .mobile-bar{
+      position:fixed; left:0; right:0; bottom:0; z-index:60;
+      display:none;
+      border-top:1px solid var(--line);
+      background: rgba(7,20,38,.82);
+      backdrop-filter: blur(10px);
+      padding:10px 12px;
+    }
+    .mobile-bar .row{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:10px;
+      max-width: var(--max);
+      margin:0 auto;
+    }
+    .mbtn{
+      padding:12px 10px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      color:var(--text);
+      font-weight:900;
+      text-align:center;
+      font-size:14px;
+    }
+    .mbtn.primary{
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      border:1px solid rgba(255,255,255,.12);
+    }
+
+    /* Responsive */
+    @media (max-width: 980px){
+      .hero-grid{grid-template-columns: 1fr}
+      .trust-row{grid-template-columns: repeat(2, minmax(0,1fr))}
+      .grid-3{grid-template-columns: 1fr}
+      .grid-2{grid-template-columns: 1fr}
+      .portfolio{grid-template-columns: 1fr}
+      .steps{grid-template-columns: 1fr}
+      .reviews{grid-template-columns: 1fr}
+      .contact{grid-template-columns: 1fr}
+      .menu{display:none}
+      .mobile-bar{display:block}
+      .hero-card, .side-card{min-height:auto}
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Top Nav -->
+  <header class="nav">
+    <div class="container">
+      <div class="nav-inner">
+        <div class="brand" aria-label="ArmSungMa">
+          <div class="logo" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path d="M12 2l8 4v6c0 5-3.5 9.5-8 10-4.5-.5-8-5-8-10V6l8-4Z" stroke="white" stroke-width="2" opacity=".95"/>
+              <path d="M8.5 12.5l2.2 2.2L15.8 9.6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div>
+            ArmSungMa
+            <small>Home Construction & Renovation</small>
+          </div>
+        </div>
+
+        <nav class="menu" aria-label="Primary">
+          <a href="#services">Services</a>
+          <a href="#portfolio">Portfolio</a>
+          <a href="#process">Process</a>
+          <a href="#reviews">Reviews</a>
+          <a href="#contact">Quote</a>
+        </nav>
+
+        <a class="btn btn-primary" href="#contact">Get Free Quote</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" id="top">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-card">
+          <span class="pill">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Licensed • Insured • On-time delivery
+          </span>
+
+          <h1>Build your dream home</h1>
+          <p>
+            From new builds to full renovations—transparent pricing, professional crews, and a process you can trust.
+            Tell us your plan and we’ll provide a free quote.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#contact">
+              Get Free Quote
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M5 12h12" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                <path d="M13 6l6 6-6 6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+            <a class="btn btn-ghost" href="#portfolio">View Portfolio</a>
+          </div>
+
+          <div class="trust-row" aria-label="Trust points">
+            <div class="trust">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M12 2l8 4v6c0 5-3.5 9.5-8 10-4.5-.5-8-5-8-10V6l8-4Z" stroke="currentColor" stroke-width="2"/>
+              </svg>
+              Warranty included
+            </div>
+            <div class="trust">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M3 11l9-9 9 9v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V11Z" stroke="currentColor" stroke-width="2"/>
+              </svg>
+              Quality materials
+            </div>
+            <div class="trust">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M12 8v4l3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" stroke="currentColor" stroke-width="2"/>
+              </svg>
+              Clear timeline updates
+            </div>
+            <div class="trust">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M20 7l-8 10-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M3 5h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+              Transparent pricing
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Quote -->
+        <aside class="side-card" aria-label="Quick quote form">
+          <div>
+            <h3>Quick Quote (1 minute)</h3>
+            <p>Leave your details. We’ll contact you with next steps. (Contact channels will be added later.)</p>
+          </div>
+
+          <form class="form" id="quoteForm" onsubmit="return handleSubmit(event)">
+            <input class="input" name="name" placeholder="Full name" required />
+            <input class="input" name="phone" placeholder="Phone number" required />
+            <select class="select" name="type" required>
+              <option value="" disabled selected>Project type</option>
+              <option>New house construction</option>
+              <option>Renovation</option>
+              <option>Interior work</option>
+            </select>
+            <input class="input" name="location" placeholder="Location / City" />
+            <textarea class="textarea" name="message" placeholder="Briefly describe your project (size, rooms, timeline)"></textarea>
+            <button class="btn btn-primary" type="submit">Request a Free Quote</button>
+            <div class="note">No spam. Your info stays private. (Demo form: replace submit action later)</div>
+          </form>
+
+          <div class="card" style="background: rgba(255,255,255,.04);">
+            <h3 style="margin:0 0 6px;">Need fast response?</h3>
+            <p style="margin:0; color:var(--muted); font-size:14px;">
+              Add Phone + LINE here later. (Placeholders are ready in the Contact section.)
+            </p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="section" id="services">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Services built for your home</h2>
+          <p>Choose one service or combine multiple—we’ll tailor a plan around your budget and timeline.</p>
+        </div>
+        <a class="btn" href="#contact">Get Free Quote</a>
+      </div>
+
+      <div class="grid-3">
+        <div class="card">
+          <h3>New House Construction</h3>
+          <p>Custom builds from foundation to finish with professional project management.</p>
+          <ul class="list">
+            <li>✅ Structure & foundation</li>
+            <li>✅ Roofing & exterior</li>
+            <li>✅ Electrical/plumbing coordination</li>
+            <li>✅ Final inspection & handover</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Renovation</h3>
+          <p>Upgrade kitchens, bathrooms, rooms, or full-home remodels with clear milestones.</p>
+          <ul class="list">
+            <li>✅ Demolition & re-layout</li>
+            <li>✅ Waterproofing systems</li>
+            <li>✅ Tile, paint, fixtures</li>
+            <li>✅ Quality finishing</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Interior Work</h3>
+          <p>Modern interior finishing to elevate comfort and increase home value.</p>
+          <ul class="list">
+            <li>✅ Ceilings & partitions</li>
+            <li>✅ Flooring & walls</li>
+            <li>✅ Built-ins & cabinetry</li>
+            <li>✅ Lighting & detailing</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio -->
+  <section class="section" id="portfolio">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Recent projects</h2>
+          <p>Real work, real results—quality you can see. Replace images and details with your real portfolio.</p>
+        </div>
+        <a class="btn" href="#contact">Request Quote</a>
+      </div>
+
+      <div class="portfolio">
+        <article class="card project">
+          <div class="img" style="background-image:url('https://images.unsplash.com/photo-1501183638710-841dd1904471?auto=format&fit=crop&w=1400&q=80');"></div>
+          <div class="body">
+            <h3>Modern Family Home (2-Story)</h3>
+            <p>Turnkey build with premium finishing and structured handover.</p>
+            <div class="meta">
+              <span class="tag">4 bed</span><span class="tag">280 m²</span><span class="tag">Turnkey</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="card project">
+          <div class="img" style="background-image:url('https://images.unsplash.com/photo-1556912167-f556f1f39fdf?auto=format&fit=crop&w=1400&q=80');"></div>
+          <div class="body">
+            <h3>Kitchen & Dining Renovation</h3>
+            <p>Layout upgrade, cabinetry, lighting, and tile finishing.</p>
+            <div class="meta">
+              <span class="tag">Renovation</span><span class="tag">Cabinetry</span><span class="tag">Lighting</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="card project">
+          <div class="img" style="background-image:url('https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1400&q=80');"></div>
+          <div class="body">
+            <h3>Bathroom Waterproofing & Remodel</h3>
+            <p>Waterproof system + fixtures and clean, modern finishes.</p>
+            <div class="meta">
+              <span class="tag">Waterproof</span><span class="tag">Tiles</span><span class="tag">Fixtures</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="card project">
+          <div class="img" style="background-image:url('https://images.unsplash.com/photo-1598928506311-c55ded91a20c?auto=format&fit=crop&w=1400&q=80');"></div>
+          <div class="body">
+            <h3>Home Extension + Outdoor Area</h3>
+            <p>Added living space with improved airflow and usability.</p>
+            <div class="meta">
+              <span class="tag">Extension</span><span class="tag">Roof</span><span class="tag">Outdoor</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="card project">
+          <div class="img" style="background-image:url('https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=1400&q=80');"></div>
+          <div class="body">
+            <h3>Interior Refresh (Living + Bedrooms)</h3>
+            <p>Flooring, paint, ceiling, and built-in wardrobe set.</p>
+            <div class="meta">
+              <span class="tag">Interior</span><span class="tag">Flooring</span><span class="tag">Built-in</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="card project">
+          <div class="img" style="background-image:url('https://images.unsplash.com/photo-1600121848594-d8644e57abab?auto=format&fit=crop&w=1400&q=80');"></div>
+          <div class="body">
+            <h3>Full Home Renovation (Before/After)</h3>
+            <p>Structural repairs, redesign, and complete interior finishing.</p>
+            <div class="meta">
+              <span class="tag">Full Reno</span><span class="tag">Redesign</span><span class="tag">Finish</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section class="section" id="process">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Simple process, clear timeline</h2>
+          <p>Step-by-step delivery so you always know what’s happening and what comes next.</p>
+        </div>
+      </div>
+
+      <div class="steps">
+        <div class="card step">
+          <div class="num">1</div>
+          <h3>Request a quote</h3>
+          <p>Share your project goals—new build, renovation, or interior work.</p>
+        </div>
+        <div class="card step">
+          <div class="num">2</div>
+          <h3>Site visit & consult</h3>
+          <p>We assess the site and recommend options within your budget.</p>
+        </div>
+        <div class="card step">
+          <div class="num">3</div>
+          <h3>Proposal & pricing</h3>
+          <p>Clear scope, timeline, and cost breakdown—no hidden surprises.</p>
+        </div>
+        <div class="card step">
+          <div class="num">4</div>
+          <h3>Build & updates</h3>
+          <p>Professional crew with weekly progress updates and milestones.</p>
+        </div>
+        <div class="card step">
+          <div class="num">5</div>
+          <h3>Handover & warranty</h3>
+          <p>Final inspection, punch list completion, and after-service support.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reviews -->
+  <section class="section" id="reviews">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Trusted by homeowners</h2>
+          <p>Replace with your real customer feedback. Keep 3–6 reviews for best credibility.</p>
+        </div>
+      </div>
+
+      <div class="reviews">
+        <div class="card">
+          <div class="stars">★★★★★</div>
+          <p style="margin-top:8px;">“Delivered on time and the finishing quality was excellent. Communication was clear every week.”</p>
+          <div class="reviewer">— Customer A, Renovation</div>
+        </div>
+        <div class="card">
+          <div class="stars">★★★★★</div>
+          <p style="margin-top:8px;">“Professional team, transparent cost breakdown, and great attention to details.”</p>
+          <div class="reviewer">— Customer B, Interior Work</div>
+        </div>
+        <div class="card">
+          <div class="stars">★★★★★</div>
+          <p style="margin-top:8px;">“We felt confident from day one. The process was organized and the results exceeded expectations.”</p>
+          <div class="reviewer">— Customer C, New House Build</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Get a free quote today</h2>
+          <p>Tell us what you want to build. We’ll respond fast. (You said you’ll add contact channels later—placeholders are ready.)</p>
+        </div>
+      </div>
+
+      <div class="contact">
+        <div class="card">
+          <h3 style="margin-top:0;">Quote request form</h3>
+          <form class="form" onsubmit="return handleSubmit(event)">
+            <input class="input" name="name" placeholder="Full name" required />
+            <input class="input" name="phone" placeholder="Phone number" required />
+            <select class="select" name="type" required>
+              <option value="" disabled selected>Project type</option>
+              <option>New house construction</option>
+              <option>Renovation</option>
+              <option>Interior work</option>
+            </select>
+            <div class="grid-2">
+              <input class="input" name="location" placeholder="Location / City" />
+              <select class="select" name="budget">
+                <option value="" disabled selected>Budget range (optional)</option>
+                <option>Not sure yet</option>
+                <option>Small</option>
+                <option>Medium</option>
+                <option>High</option>
+              </select>
+            </div>
+            <textarea class="textarea" name="message" placeholder="Project details (size, rooms, style, timeline)"></textarea>
+            <button class="btn btn-primary" type="submit">Get Free Quote</button>
+            <div class="note">Demo submit: this form shows a success message only. Replace with your real backend later.</div>
+          </form>
+        </div>
+
+        <div class="card">
+          <h3 style="margin-top:0;">Direct contact</h3>
+          <p style="color:var(--muted); margin-top:0;">Fill these later:</p>
+
+          <div class="card" style="background: rgba(255,255,255,.04); margin-top:10px;">
+            <h3 style="margin:0 0 6px; font-size:15px;">Phone</h3>
+            <p style="margin:0; color:var(--muted);">+__ ____ ____</p>
+          </div>
+
+          <div class="card" style="background: rgba(255,255,255,.04); margin-top:10px;">
+            <h3 style="margin:0 0 6px; font-size:15px;">LINE</h3>
+            <p style="margin:0; color:var(--muted);">@________</p>
+          </div>
+
+          <div class="card" style="background: rgba(255,255,255,.04); margin-top:10px;">
+            <h3 style="margin:0 0 6px; font-size:15px;">Hours</h3>
+            <p style="margin:0; color:var(--muted);">Mon–Sat 09:00–18:00</p>
+          </div>
+
+          <div class="note">Tip: On mobile, use the bottom bar buttons (Call / LINE / Quote). Update links later.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container" style="display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;">
+      <div><strong style="color:var(--text);">ArmSungMa</strong> • Home Construction & Renovation</div>
+      <div>© <span id="year"></span> ArmSungMa. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <!-- Mobile sticky bar -->
+  <div class="mobile-bar" role="navigation" aria-label="Quick actions">
+    <div class="row">
+      <a class="mbtn" href="#contact">Quote</a>
+      <a class="mbtn" href="javascript:void(0)" onclick="alert('Add phone link later (tel:...)')">Call</a>
+      <a class="mbtn primary" href="javascript:void(0)" onclick="alert('Add LINE link later')">LINE</a>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    function handleSubmit(e){
+      e.preventDefault();
+      // Demo behavior only. Replace with your backend submit later.
+      const form = e.target;
+      const name = (form.querySelector('[name="name"]')?.value || '').trim();
+      alert('Thank you' + (name ? (', ' + name) : '') + '! We received your request. (Demo form)');
+      form.reset();
+      return false;
+    }
+  </script>
+</body>
+</html>
